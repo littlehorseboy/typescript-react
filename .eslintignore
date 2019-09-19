@@ -1,4 +1,4 @@
 !.eslintrc.js
-*.svg
-*.png
 /dist
+*.html
+*.json

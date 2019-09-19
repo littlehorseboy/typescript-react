@@ -1,6 +1,8 @@
+/* eslint-disable @typescript-eslint/no-var-requires, import/no-extraneous-dependencies */
 const merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const common = require('./webpack.common');
+/* eslint-enable */
 
 module.exports = merge(common, {
   mode: 'development',
@@ -16,7 +18,7 @@ module.exports = merge(common, {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './index.html'
+      template: './index.html',
     }),
   ],
 });
