@@ -1,13 +1,20 @@
-import React, { useState } from 'react';
+import React from 'react';
+import Counter from './components/Counter/Counter';
+import GetUUID from './components/GetUUID/GetUUID';
+import GetUUIDByMultipleOfFive from './components/GetUUIDByMultipleOfFive/GetUUIDByMultipleOfFive';
 
 export default function Root(): JSX.Element {
-  const [count, setCount] = useState(0);
-
   return (
     <>
-      <h1>{`點擊次數為 ${count} 次`}</h1>
+      <Counter />
 
-      <button type="button" onClick={(): void => setCount(count + 1)}>點我</button>
+      <hr />
+
+      <GetUUID />
+
+      <hr />
+
+      <GetUUIDByMultipleOfFive />
     </>
   );
 }
