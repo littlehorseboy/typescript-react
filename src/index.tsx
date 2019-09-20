@@ -1,4 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Root from './Root';
 
-ReactDOM.render(<h1>Hello Typescript + React </h1>, document.querySelector('#app'));
+ReactDOM.render(<Root />, document.querySelector('#app'));
