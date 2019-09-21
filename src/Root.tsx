@@ -1,20 +1,15 @@
 import React from 'react';
-import Counter from './components/day05/Counter/Counter';
-import GetUUID from './components/day05/GetUUID/GetUUID';
-import GetUUIDByMultipleOfFive from './components/day05/GetUUIDByMultipleOfFive/GetUUIDByMultipleOfFive';
+import UUIDStatus from './components/day06/UUIDStatus/UUIDStatus';
+import UUIDList from './components/day06/UUIDList/UUIDList';
 
 export default function Root(): JSX.Element {
   return (
     <>
-      <Counter />
+      <UUIDStatus />
 
       <hr />
 
-      <GetUUID />
-
-      <hr />
-
-      <GetUUIDByMultipleOfFive />
+      <UUIDList />
     </>
   );
 }
