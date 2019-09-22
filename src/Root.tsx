@@ -1,13 +1,29 @@
 import React from 'react';
-// import ConsoleRefNumber from './components/day07/ConsoleRefNumber/ConsoleRefNumber';
-// import InputFocus from './components/day07/InputFocus/InputFocus';
-// import CalculatePlus from './components/day07/CalculatePlus/CalculatePlus';
-import CalculatePlusFunc from './components/day07/CalculatePlusFunc/CalculatePlusFunc';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import MaterialContainer from './components/day08/MaterialContainer/MaterialContainer';
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      main: '#2196f3',
+    },
+    secondary: {
+      main: '#ff5722',
+    },
+  },
+  typography: {
+    fontFamily: 'system-ui, -apple-system, "Roboto", "Helvetica", "Arial", sans-serif',
+  },
+});
 
 export default function Root(): JSX.Element {
   return (
     <>
-      <CalculatePlusFunc />
+      <CssBaseline />
+      <MuiThemeProvider theme={theme}>
+        <MaterialContainer />
+      </MuiThemeProvider>
     </>
   );
 }
