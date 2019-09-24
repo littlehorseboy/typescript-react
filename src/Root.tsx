@@ -1,7 +1,7 @@
 import React from 'react';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import ShineButton from './components/day09/ShineButton/ShineButton';
+import Router from './router/Router';
 
 const theme = createMuiTheme({
   palette: {
@@ -22,7 +22,7 @@ export default function Root(): JSX.Element {
     <>
       <CssBaseline />
       <MuiThemeProvider theme={theme}>
-        <ShineButton />
+        <Router />
       </MuiThemeProvider>
     </>
   );
