@@ -1,37 +1,32 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { HashRouter, Route, Link } from 'react-router-dom';
-import Home from '../components/day10/Home/Home';
-import About from '../components/day10/About/About';
-import Blog from '../components/day10/Blog/Blog';
+import PrivateRoute from './PrivateRoute';
+import Home from '../components/day11/Home/Home';
+import PrivateHome from '../components/day11/PrivateHome/PrivateHome';
 
 export default function Router(): JSX.Element {
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
   return (
     <HashRouter>
       <div>
+        <button type="button" onClick={(): void => setIsAuthenticated(!isAuthenticated)}>
+          {isAuthenticated ? '登出' : '登入'}
+        </button>
+
         <ul>
           <li>
             <Link to="/">Home</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/blog">Blog</Link>
-          </li>
-          <li>
-            <Link to="/blog/horse">Blog + horse</Link>
-          </li>
-          <li>
-            <Link to="/blog/pig">Blog + pig</Link>
+            <Link to="/privateHome">PrivateHome</Link>
           </li>
         </ul>
 
         <hr />
 
         <Route exact path="/" component={Home} />
-        <Route path="/about" component={About} />
-        <Route exact path="/blog" component={Blog} />
-        <Route path="/blog/:name" component={Blog} />
+        <PrivateRoute path="/privateHome" component={PrivateHome} isAuthenticated={isAuthenticated} />
       </div>
     </HashRouter>
   );
