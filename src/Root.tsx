@@ -1,7 +1,10 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Router from './router/Router';
+// import Router from './router/Router';
+import Counter from './components/day12/Counter/Counter';
+import store from './reducers/configureStore';
 
 const theme = createMuiTheme({
   palette: {
@@ -22,7 +25,10 @@ export default function Root(): JSX.Element {
     <>
       <CssBaseline />
       <MuiThemeProvider theme={theme}>
-        <Router />
+        <Provider store={store}>
+          {/* <Router /> */}
+          <Counter />
+        </Provider>
       </MuiThemeProvider>
     </>
   );
