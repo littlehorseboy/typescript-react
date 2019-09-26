@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
-import {
-  HashRouter, Route, Link, RouteComponentProps,
-} from 'react-router-dom';
+import React from 'react';
+import { HashRouter, Route, RouteComponentProps } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
-import Home from '../components/day11/Home/Home';
-import About from '../components/day11/About/About';
-import Blog from '../components/day11/Blog/Blog';
-import PrivateHome from '../components/day11/PrivateHome/PrivateHome';
+import PrivateHome from '../components/day13/PrivateHome/PrivateHome';
+import Home from '../components/Home/Home';
+import Header from '../components/Header/Header';
 
 interface RouteWithSubRoutesPropsI {
   route: RouteI;
@@ -18,7 +15,7 @@ export function RouteWithSubRoutes(props: RouteWithSubRoutesPropsI): JSX.Element
   return (
     route.isPrivate
       ? (
-        <PrivateRoute path="/privateHome" component={PrivateHome} isAuthenticated />
+        <PrivateRoute path="/privateHome" component={PrivateHome} />
       )
       : (
         <Route
@@ -51,16 +48,6 @@ export const routes: RouteI[] = [
     breadcrumbName: '首頁',
     routes: [
       {
-        path: '/about',
-        Component: About,
-        breadcrumbName: '關於我',
-      },
-      {
-        path: '/blog',
-        Component: Blog,
-        breadcrumbName: '部落格',
-      },
-      {
         path: '/privateHome',
         Component: PrivateHome,
         breadcrumbName: 'PrivateHome',
@@ -71,39 +58,16 @@ export const routes: RouteI[] = [
 ];
 
 export default function Router(): JSX.Element {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
   return (
     <HashRouter>
       <div>
-        <button type="button" onClick={(): void => setIsAuthenticated(!isAuthenticated)}>
-          {isAuthenticated ? '登出' : '登入'}
-        </button>
-
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/blog">Blog</Link>
-          </li>
-          <li>
-            <Link to="/privateHome">PrivateHome</Link>
-          </li>
-        </ul>
-
-        <hr />
+        <Header />
 
         {routes.map((route): JSX.Element => (
           <React.Fragment key={route.path}>
             <RouteWithSubRoutes route={route} />
           </React.Fragment>
         ))}
-
-        <PrivateRoute path="/privateHome" component={PrivateHome} isAuthenticated={isAuthenticated} />
       </div>
     </HashRouter>
   );
