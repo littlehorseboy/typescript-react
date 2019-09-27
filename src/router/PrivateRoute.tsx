@@ -2,11 +2,12 @@ import React from 'react';
 import { Route, Redirect } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { storeTypes } from '../reducers/configureStore';
+import { RouteComponentPropsI } from './Router';
 
 interface PropsI {
   exact?: boolean;
   path: string;
-  component: () => JSX.Element;
+  component: (props: RouteComponentPropsI) => JSX.Element;
 }
 
 export default function PrivateRoute(props: PropsI): JSX.Element {
@@ -24,7 +25,7 @@ export default function PrivateRoute(props: PropsI): JSX.Element {
       path={path}
       render={(routeProps): JSX.Element => (
         isAuthenticated
-          ? <Component />
+          ? <Component routeComponentProps={routeProps} />
           : <Redirect to={{ pathname: '/', state: { from: routeProps.location } }} />
       )}
     />

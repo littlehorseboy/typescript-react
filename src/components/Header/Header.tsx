@@ -27,6 +27,7 @@ export default function Header(): JSX.Element {
       <div>
         <Button color="inherit" component={Link} to="/">Home</Button>
         <Button color="inherit" component={Link} to="/privateHome">PrivateHome</Button>
+        <Button color="inherit" component={Link} to="/formikPractice">示範表單</Button>
       </div>
 
       <Login />

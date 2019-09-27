@@ -2,9 +2,10 @@ import React from 'react';
 import { HashRouter, Route, RouteComponentProps } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
 import IsLoading from '../components/IsLoading/IsLoading';
-import PrivateHome from '../components/day13/PrivateHome/PrivateHome';
-import Home from '../components/Home/Home';
 import Header from '../components/Header/Header';
+import Home from '../components/Home/Home';
+import PrivateHome from '../components/day13/PrivateHome/PrivateHome';
+import FormikPractice from '../components/FormikPractice/FormikPractice';
 
 interface RouteWithSubRoutesPropsI {
   route: RouteI;
@@ -16,7 +17,7 @@ export function RouteWithSubRoutes(props: RouteWithSubRoutesPropsI): JSX.Element
   return (
     route.isPrivate
       ? (
-        <PrivateRoute path="/privateHome" component={PrivateHome} />
+        <PrivateRoute path={route.path} component={route.Component} />
       )
       : (
         <Route
@@ -52,6 +53,12 @@ export const routes: RouteI[] = [
         path: '/privateHome',
         Component: PrivateHome,
         breadcrumbName: 'PrivateHome',
+        isPrivate: true,
+      },
+      {
+        path: '/formikPractice',
+        Component: FormikPractice,
+        breadcrumbName: '姓名年齡示範表單',
         isPrivate: true,
       },
     ],
