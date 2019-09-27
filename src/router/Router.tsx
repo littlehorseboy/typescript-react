@@ -1,6 +1,7 @@
 import React from 'react';
 import { HashRouter, Route, RouteComponentProps } from 'react-router-dom';
 import PrivateRoute from './PrivateRoute';
+import IsLoading from '../components/IsLoading/IsLoading';
 import PrivateHome from '../components/day13/PrivateHome/PrivateHome';
 import Home from '../components/Home/Home';
 import Header from '../components/Header/Header';
@@ -60,6 +61,8 @@ export const routes: RouteI[] = [
 export default function Router(): JSX.Element {
   return (
     <HashRouter>
+      <IsLoading />
+
       <div>
         <Header />
 
