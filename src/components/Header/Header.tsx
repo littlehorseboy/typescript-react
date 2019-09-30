@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import LanguageButton from './LanguageButton/LanguageButton';
 import Login from '../Login/Login';
 
 const useStyles = makeStyles((theme) => ({
@@ -28,6 +29,7 @@ export default function Header(): JSX.Element {
         <Button color="inherit" component={Link} to="/">Home</Button>
         <Button color="inherit" component={Link} to="/privateHome">PrivateHome</Button>
         <Button color="inherit" component={Link} to="/formikPractice">示範表單</Button>
+        <LanguageButton />
       </div>
 
       <Login />

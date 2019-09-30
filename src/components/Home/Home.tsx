@@ -1,15 +1,20 @@
 import React from 'react';
+import { useIntl } from 'react-intl';
 import { RouteComponentPropsI, RouteWithSubRoutes } from '../../router/Router';
 import RouterBreadcrumbs from '../../router/RouterBreadcrumbs';
 
 export default function Home(props: RouteComponentPropsI): JSX.Element {
   const { routes } = props;
 
+  const { formatMessage } = useIntl();
+
   return (
     <>
       <RouterBreadcrumbs />
 
-      <h2>Home</h2>
+      <h2>{formatMessage({ id: 'homepageTitle', defaultMessage: 'Here is the home page' })}</h2>
+
+      <h3>{formatMessage({ id: 'homepageSubTitle', defaultMessage: 'internationalization' })}</h3>
 
       {routes && routes.map((route): JSX.Element => (
         <React.Fragment key={route.path}>
