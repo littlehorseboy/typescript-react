@@ -13,11 +13,11 @@ export default function useGetMessage(): {
     setTimeout((): void => {
       setMessages({
         'zh-TW': {
-          homepageTitle: '這裡是首頁',
+          homepageTitle: '這裡是 Home.tsx',
           homepageSubTitle: '國際化',
         },
         'en-US': {
-          homepageTitle: 'Here is the home page',
+          homepageTitle: 'Here is the Home.tsx',
           homepageSubTitle: 'internationalization',
         },
       });

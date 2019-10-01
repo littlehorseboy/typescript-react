@@ -6,6 +6,7 @@ import Header from '../components/Header/Header';
 import Home from '../components/Home/Home';
 import PrivateHome from '../components/day13/PrivateHome/PrivateHome';
 import FormikPractice from '../components/FormikPractice/FormikPractice';
+import DraftJsPractice from '../components/DraftJsPractice/DraftJsPractice';
 
 interface RouteWithSubRoutesPropsI {
   route: RouteI;
@@ -60,6 +61,11 @@ export const routes: RouteI[] = [
         Component: FormikPractice,
         breadcrumbName: '姓名年齡示範表單',
         isPrivate: true,
+      },
+      {
+        path: '/draftjs',
+        Component: DraftJsPractice,
+        breadcrumbName: 'Draft.js',
       },
     ],
   },

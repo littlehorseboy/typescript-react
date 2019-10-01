@@ -12,7 +12,7 @@ export default function Home(props: RouteComponentPropsI): JSX.Element {
     <>
       <RouterBreadcrumbs />
 
-      <h2>{formatMessage({ id: 'homepageTitle', defaultMessage: 'Here is the home page' })}</h2>
+      <h2>{formatMessage({ id: 'homepageTitle', defaultMessage: 'Here is the Home.tsx' })}</h2>
 
       <h3>{formatMessage({ id: 'homepageSubTitle', defaultMessage: 'internationalization' })}</h3>
 
