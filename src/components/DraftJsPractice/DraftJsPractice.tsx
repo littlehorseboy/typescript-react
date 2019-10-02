@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import {
-  Editor, EditorState, convertToRaw, convertFromRaw, ContentState,
+  Editor, EditorState, convertToRaw, convertFromRaw, ContentState, RichUtils,
 } from 'draft-js';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
+import IconButton from '@material-ui/core/IconButton';
+import FormatBoldIcon from '@material-ui/icons/FormatBold';
+import FormatItalicIcon from '@material-ui/icons/FormatItalic';
+import FormatUnderlinedIcon from '@material-ui/icons/FormatUnderlined';
+import CodeIcon from '@material-ui/icons/Code';
 
 const useStyles = makeStyles({
   draftEditorContainer: {
@@ -42,10 +47,29 @@ export default function DraftJsPractice(): JSX.Element {
     ));
   };
 
+  const handleToggleInlineStyleClick = (inlineStyle: string): void => {
+    handleChangeEditorState(RichUtils.toggleInlineStyle(editorState, inlineStyle));
+  };
+
   return (
     <Grid container>
-      <Grid item xs={6} className={classes.draftEditorContainer}>
-        <Paper>
+      <Grid item xs={12}>
+        <IconButton color="inherit" onClick={(): void => handleToggleInlineStyleClick('BOLD')}>
+          <FormatBoldIcon />
+        </IconButton>
+        <IconButton color="inherit" onClick={(): void => handleToggleInlineStyleClick('ITALIC')}>
+          <FormatItalicIcon />
+        </IconButton>
+        <IconButton color="inherit" onClick={(): void => handleToggleInlineStyleClick('UNDERLINE')}>
+          <FormatUnderlinedIcon />
+        </IconButton>
+        <IconButton color="inherit" onClick={(): void => handleToggleInlineStyleClick('CODE')}>
+          <CodeIcon />
+        </IconButton>
+      </Grid>
+
+      <Grid item xs={6}>
+        <Paper className={classes.draftEditorContainer}>
           <Editor
             editorState={editorState}
             onChange={handleChangeEditorState}
