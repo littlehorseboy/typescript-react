@@ -7,6 +7,7 @@ import Home from '../components/Home/Home';
 import PrivateHome from '../components/day13/PrivateHome/PrivateHome';
 import FormikPractice from '../components/FormikPractice/FormikPractice';
 import DraftJsPractice from '../components/DraftJsPractice/DraftJsPractice';
+import ReactDnDPractice from '../components/ReactDnDPractice/ReactDnDPractice';
 
 interface RouteWithSubRoutesPropsI {
   route: RouteI;
@@ -66,6 +67,11 @@ export const routes: RouteI[] = [
         path: '/draftjs',
         Component: DraftJsPractice,
         breadcrumbName: 'Draft.js',
+      },
+      {
+        path: '/reactdnd',
+        Component: ReactDnDPractice,
+        breadcrumbName: 'React DnD',
       },
     ],
   },
