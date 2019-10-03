@@ -30,6 +30,7 @@ export default function Header(): JSX.Element {
         <Button color="inherit" component={Link} to="/privateHome">PrivateHome</Button>
         <Button color="inherit" component={Link} to="/formikPractice">示範表單</Button>
         <Button color="inherit" component={Link} to="/draftjs">Draft.js</Button>
+        <Button color="inherit" component={Link} to="/reactdnd">ReactDnD</Button>
 
         <LanguageButton />
       </div>

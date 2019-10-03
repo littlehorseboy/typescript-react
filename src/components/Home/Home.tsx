@@ -12,9 +12,9 @@ export default function Home(props: RouteComponentPropsI): JSX.Element {
     <>
       <RouterBreadcrumbs />
 
-      <h2>{formatMessage({ id: 'homepageTitle', defaultMessage: 'Here is the Home.tsx' })}</h2>
+      <h2 hidden>{formatMessage({ id: 'homepageTitle', defaultMessage: 'Here is the Home.tsx' })}</h2>
 
-      <h3>{formatMessage({ id: 'homepageSubTitle', defaultMessage: 'internationalization' })}</h3>
+      <h3 hidden>{formatMessage({ id: 'homepageSubTitle', defaultMessage: 'internationalization' })}</h3>
 
       {routes && routes.map((route): JSX.Element => (
         <React.Fragment key={route.path}>
