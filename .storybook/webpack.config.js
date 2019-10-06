@@ -5,6 +5,9 @@ module.exports = async ({ config }) => {
       {
         loader: 'ts-loader',
       },
+      {
+        loader: 'react-docgen-typescript-loader',
+      },
     ],
   });
 

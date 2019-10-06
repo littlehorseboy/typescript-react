@@ -23,7 +23,7 @@ interface PropsI {
   name: string;
 }
 
-export default function Box(props: PropsI): JSX.Element {
+export default function Garbage(props: PropsI): JSX.Element {
   const classes = useStyles();
 
   const { name } = props;
