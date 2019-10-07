@@ -61,6 +61,8 @@
     "react-router-config": "^5.1.0",
     "react-router-dom": "^5.0.1",
     "redux": "^4.0.4",
+    "redux-observable": "^1.2.0",
+    "rxjs": "^6.5.3",
     "yup": "^0.27.0"
   }
 }
