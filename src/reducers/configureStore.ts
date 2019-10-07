@@ -5,16 +5,20 @@ import isLoadingReducer from './isLoading/isLoading';
 import countReducer from './count/count';
 import pingingReducer from './pinging/pinging';
 import { pingingEpic } from '../actions/pinging/pinging';
+import counterReducer from './counter/counter';
+import { incrementIfOddEpic } from '../actions/counter/counter';
 
 const rootReducer = combineReducers({
   loginReducer,
   isLoadingReducer,
   countReducer,
   pingingReducer,
+  counterReducer,
 });
 
 const rootEpic = combineEpics(
   pingingEpic,
+  incrementIfOddEpic,
 );
 
 const epicMiddleware = createEpicMiddleware();
