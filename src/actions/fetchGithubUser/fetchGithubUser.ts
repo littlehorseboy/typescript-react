@@ -1,12 +1,13 @@
 import Axios from 'axios';
 import { from, Observable } from 'rxjs';
 import {
-  mergeMap, map, catchError,
+  mergeMap, map, catchError, takeUntil,
 } from 'rxjs/operators';
 import { ofType, Epic } from 'redux-observable';
 
 export const FETCH_USER = 'FETCH_USER';
 export const FETCH_USER_FILFILLED = 'FETCH_USER_FILFILLED';
+export const FETCH_USER_CANCELLED = 'FETCH_USER_CANCELLED';
 
 interface FetchUserI {
   type: typeof FETCH_USER;
@@ -36,6 +37,14 @@ export const fetchUserFulfilled = (userInfo: Record<string, string>): FetchUserF
   },
 });
 
+interface FetchUserCancelledI {
+  type: typeof FETCH_USER_CANCELLED;
+}
+
+export const fetchUserCancelled = (): FetchUserCancelledI => ({
+  type: FETCH_USER_CANCELLED,
+});
+
 export const fetchUserEpic: Epic<fetchGithubUserActionTypes> = (action$) => action$.pipe(
   ofType(FETCH_USER),
   mergeMap(
@@ -46,6 +55,7 @@ export const fetchUserEpic: Epic<fetchGithubUserActionTypes> = (action$) => acti
         map((response): FetchUserFulfilledI => fetchUserFulfilled(
           response.data ? response.data : { },
         )),
+        takeUntil(action$.pipe(ofType(FETCH_USER_CANCELLED))),
         catchError((error): Observable<never> => Observable.throw(error)),
       ),
   ),
