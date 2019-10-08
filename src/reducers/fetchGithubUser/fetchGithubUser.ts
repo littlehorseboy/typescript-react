@@ -1,5 +1,5 @@
 import {
-  fetchGithubUserActionTypes, FETCH_USER, FETCH_USER_FILFILLED,
+  fetchGithubUserActionTypes, FETCH_USER, FETCH_USER_FILFILLED, FETCH_USER_CANCELLED,
 } from '../../actions/fetchGithubUser/fetchGithubUser';
 
 interface UserInfoI {
@@ -10,7 +10,7 @@ const initState: UserInfoI = {
   userInfo: {},
 };
 
-const reducer = (
+export const fetchGithubUserReducer = (
   state = initState, action: fetchGithubUserActionTypes,
 ): UserInfoI => {
   switch (action.type) {
@@ -27,4 +27,16 @@ const reducer = (
   }
 };
 
-export default reducer;
+export const isFetchingGithubUserReducer = (
+  state = false, action: fetchGithubUserActionTypes,
+): boolean => {
+  switch (action.type) {
+    case FETCH_USER:
+      return true;
+    case FETCH_USER_FILFILLED:
+    case FETCH_USER_CANCELLED:
+      return false;
+    default:
+      return state;
+  }
+};

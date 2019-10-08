@@ -1,10 +1,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { storeTypes } from '../../reducers/configureStore';
-import { fetchUser } from '../../actions/fetchGithubUser/fetchGithubUser';
+import { fetchUser, fetchUserCancelled } from '../../actions/fetchGithubUser/fetchGithubUser';
 
 export default function FetchGithubUser(): JSX.Element {
   const userInfo = useSelector((state: storeTypes) => state.fetchGithubUserReducer.userInfo);
+
+  const isFetching = useSelector((state: storeTypes) => state.isFetchingGithubUserReducer);
 
   const dispatch = useDispatch();
 
@@ -18,6 +20,17 @@ export default function FetchGithubUser(): JSX.Element {
       >
         Fetch User Info
       </button>
+
+      <button
+        type="button"
+        onClick={(): void => {
+          dispatch(fetchUserCancelled());
+        }}
+      >
+        Fetch User Cancelled
+      </button>
+
+      <span>{isFetching ? 'loading...' : ''}</span>
 
       <br />
 

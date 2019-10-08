@@ -7,7 +7,7 @@ import pingingReducer from './pinging/pinging';
 import { pingingEpic } from '../actions/pinging/pinging';
 import counterReducer from './counter/counter';
 import { incrementIfOddEpic } from '../actions/counter/counter';
-import fetchGithubUserReducer from './fetchGithubUser/fetchGithubUser';
+import { fetchGithubUserReducer, isFetchingGithubUserReducer } from './fetchGithubUser/fetchGithubUser';
 import { fetchUserEpic } from '../actions/fetchGithubUser/fetchGithubUser';
 
 const rootReducer = combineReducers({
@@ -17,6 +17,7 @@ const rootReducer = combineReducers({
   pingingReducer,
   counterReducer,
   fetchGithubUserReducer,
+  isFetchingGithubUserReducer,
 });
 
 const rootEpic = combineEpics(

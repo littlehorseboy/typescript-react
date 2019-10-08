@@ -61,4 +61,4 @@ export const fetchUserEpic: Epic<fetchGithubUserActionTypes> = (action$) => acti
   ),
 );
 
-export type fetchGithubUserActionTypes = FetchUserI | FetchUserFulfilledI;
+export type fetchGithubUserActionTypes = FetchUserI | FetchUserFulfilledI | FetchUserCancelledI;
