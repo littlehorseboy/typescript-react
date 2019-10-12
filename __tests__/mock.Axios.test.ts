@@ -6,8 +6,12 @@ jest.mock('axios');
 const mockedAxios = mocked(Axios, true);
 
 test('fetch data', () => {
-  mockedAxios.mockImplementation(
-    () => Promise.resolve({ data: 123 }) as AxiosPromise,
+  // mockedAxios.mockImplementation(
+  //   () => Promise.resolve({ data: 123 }) as AxiosPromise,
+  // );
+
+  mockedAxios.mockResolvedValueOnce(
+    Promise.resolve({ data: 123 }) as AxiosPromise,
   );
 
   return Axios({}).then((response) => {
