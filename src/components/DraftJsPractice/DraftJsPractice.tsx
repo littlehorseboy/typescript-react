@@ -165,7 +165,10 @@ export default function DraftJsPractice(): JSX.Element {
       </Grid>
 
       <Grid item xs={6}>
-        <Paper className={classes.draftEditorContainer}>
+        <Paper
+          className={classes.draftEditorContainer}
+          data-testid="draftjs-editor"
+        >
           <Editor
             editorState={editorState}
             onChange={handleChangeEditorState}
