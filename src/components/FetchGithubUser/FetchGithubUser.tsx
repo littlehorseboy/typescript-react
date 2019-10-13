@@ -17,6 +17,7 @@ export default function FetchGithubUser(): JSX.Element {
         onClick={(): void => {
           dispatch(fetchUser('littlehorseboy'));
         }}
+        data-testid="fetchUserButton"
       >
         Fetch User Info
       </button>
@@ -26,11 +27,12 @@ export default function FetchGithubUser(): JSX.Element {
         onClick={(): void => {
           dispatch(fetchUserCancelled());
         }}
+        data-testid="fetchUserCancelButton"
       >
         Fetch User Cancelled
       </button>
 
-      <span>{isFetching ? 'loading...' : ''}</span>
+      <span data-testid="isFetchingStatus">{isFetching ? 'loading...' : ''}</span>
 
       <br />
 
@@ -39,6 +41,7 @@ export default function FetchGithubUser(): JSX.Element {
         rows={30}
         value={JSON.stringify(userInfo, null, 2)}
         onChange={(): void => {}}
+        data-testid="fetchUserTextarea"
       />
     </>
   );
